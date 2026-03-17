@@ -1,0 +1,208 @@
+# Workflow de Agentes - Configuración Base
+
+**Versión**: 1.0.0  
+**Fecha**: 2026-03-16  
+**Propósito**: Definir flujo de trabajo base que será copiado/adaptado por cada proyecto
+
+---
+
+## 📋 Estructura Global
+
+```yaml
+version: "1.0"
+methodology: "AI SKILL DEVELOPMENT v2.2"
+system: "Multi-Proyecto con Agentes, Skills, Conocimiento y Tickets"
+
+agents:
+  - id: picoro
+    formal_name: fic_picoro_agent_orchestrator
+    emoji: 🧠
+    role: Analista/Arquitecto
+    phase: [2.3, 2.4]
+    
+  - id: goku
+    formal_name: fic_goku_agent_dev1
+    emoji: 👨‍💻
+    role: Programador Senior
+    phase: [2.4, 3]
+    
+  - id: vegeta
+    formal_name: fic_vegeta_agent_dev2
+    emoji: 🥷
+    role: Optimizador/Seguridad
+    phase: [3]
+    
+  - id: bulma
+    formal_name: fic_bulma_agent_tester1
+    emoji: 🧪
+    role: QA Tester
+    phase: [3]
+    
+  - id: krillin
+    formal_name: fic_krillin_agent_db
+    emoji: 🗄️
+    role: Especialista Base de Datos
+    phase: [2.4, 3]
+
+workflow:
+  # FASE 2.3: Investigación
+  phase_2_3:
+    name: Investigación
+    agents: [picoro]
+    inputs:
+      - SPECIFICATION.md
+      - DATABASE_SELECTION_GATE completed
+    outputs:
+      - knowledge/local/*.md
+      - knowledge/remote/*.md
+      - Investigación documentada
+    completion_criteria:
+      - Mínimo 5 archivos de research
+      - Knowledge base > 50KB
+      - Decisiones justificadas
+
+  # FASE 2.4: Diseño/Estructura
+  phase_2_4:
+    name: Diseño/Estructura
+    agents: [picoro, goku, krillin]
+    parallel: false
+    sequence:
+      - agent: picoro
+        task: Diseñar arquitectura
+        outputs: [config.yaml, workflow_agents.yaml]
+      
+      - agent: goku
+        task: Crear estructura de carpetas
+        outputs: [src/ skeleton, package.json]
+      
+      - agent: krillin
+        task: Diseñar modelos de datos
+        outputs: [DATABASE_CONFIG.yaml, .env.example]
+    
+    completion_criteria:
+      - config.yaml completo
+      - workflow_agents.yaml actualizado
+      - Estructura src/ lista
+      - Modelos de datos definidos
+
+  # FASE 3: Implementación
+  phase_3:
+    name: Implementación y Testing
+    agents: [goku, vegeta, bulma, krillin]
+    parallel: true
+    stages:
+      - stage: 1
+        agent: goku
+        task: Implementar features principales
+        outputs: [Código TypeScript + React, Tests básicos]
+      
+      - stage: 2a
+        agents: [vegeta, bulma]
+        parallel: true
+        tasks:
+          vegeta:
+            - Optimizar latencia
+            - Auditar seguridad
+          bulma:
+            - Crear test suite
+            - Validar precisión financiera
+      
+      - stage: 3
+        agents: [picoro]
+        task: Revisión final y aprobación
+        criteria:
+          - Tests > 80% coverage
+          - 0 credenciales expuestas
+          - Latencia < 100ms
+          - Bugs críticos: 0
+
+# Skills por Agente (referencia)
+skills:
+  picoro:
+    - ticket_analyzer
+    - architecture_designer
+    - requirement_validator
+    - knowledge_synthesizer
+  
+  goku:
+    - react_code_generator
+    - typescript_code_generator
+    - vite_code_generator
+    - tradingview_widgets_integrator
+    - broker_api_integrator
+    - documentation_writer
+    - dependency_manager
+    - code_structure_organizer
+  
+  vegeta:
+    - code_optimizer
+    - performance_analyzer
+    - security_auditor
+    - pattern_refactorer
+  
+  bulma:
+    - test_case_generator
+    - bug_detector
+    - quality_validator
+    - regression_tester
+  
+  krillin:
+    - database_schema_designer
+    - database_migrator
+    - database_connector
+
+# Protocolos obligatorios
+protocols:
+  agent_header: "SIEMPRE mostrar cuando agente inicia tarea"
+  completion_line: "SIEMPRE mostrar cuando agente termina bloque"
+  agent_transition: "SIEMPRE mostrar cuando pasa control a otro agente"
+  gates: "Ejecutar gates bloqueantes antes de cada fase crítica"
+  fic_comments: "Comentarios en código: FIC en inglés+español (OBLIGATORIO)"
+
+# Configuración de Picoro
+picoro:
+  max_retries: 3
+  timeout_seconds: 600
+  block_on_gate_failure: true
+  knowledge_base_min_size_kb: 50
+  required_tickets_min_quantity: 10
+
+# Configuración de Goku
+goku:
+  max_retries: 3
+  timeout_seconds: 900
+  min_test_coverage: 50%
+  fic_comments_required: true
+  languages: [TypeScript, React, JavaScript]
+
+# Configuración de Vegeta
+vegeta:
+  max_retries: 2
+  timeout_seconds: 900
+  max_latency_ms: 100
+  security_fail_mode: BLOCK
+  allow_credentials_in_code: false
+
+# Configuración de Bulma
+bulma:
+  max_retries: 2
+  timeout_seconds: 600
+  min_coverage: 80%
+  max_error_margin: 0.1%
+  critical_bugs_allowed: 0
+  minor_bugs_allowed: 3
+
+# Configuración de Krillin
+krillin:
+  max_retries: 3
+  timeout_seconds: 300
+  test_connection: true
+  migration_strategy: versioned
+  rollback_allowed: true
+  credentials_in_code: false
+```
+
+**Nota**: Este archivo será copiado y adaptado por cada proyecto en:
+```
+projects/pwa/{proyecto}/ai_work_flow/development/workflow_agents.yaml
+```

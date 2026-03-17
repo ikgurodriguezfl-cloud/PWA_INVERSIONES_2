@@ -1,0 +1,125 @@
+# ⚙️ Project Configuration - PWA Inversiones DRFIC
+
+project_name: pwa_inversions_drfic
+project_version: "1.0.0"
+created_at: "2026-03-16"
+team: ["Kakashi", "Naruto", "Sasuke", "Sakura", "Pelonchas"]
+
+# ========== TECHNOLOGY STACK ==========
+tech_stack:
+  frontend:
+    framework: "React 18.x"
+    language: "TypeScript 5.x"
+    build_tool: "Vite 5.x"
+    state_management: "Zustand"
+    styling: "TailwindCSS"
+    charting: "TradingView Lightweight Charts 4.x"
+    http_client: "Axios"
+    testing: "Vitest + React Testing Library"
+  
+  backend:
+    runtime: "Node.js 18+"
+    framework: "Express.js (futuro FASE 4)"
+    language: "TypeScript"
+    database:
+      primary: "Supabase (PostgreSQL)"
+      secondary: "MongoDB"
+    orm: "Prisma"
+    authentication: "JWT"
+  
+  indicators:
+    library: "technicalindicators 3.x"
+    supported:
+      - "SMA (Simple Moving Average)"
+      - "EMA (Exponential Moving Average)"
+      - "RSI (Relative Strength Index)"
+      - "MACD (Moving Average Convergence Divergence)"
+      - "Bollinger Bands"
+      - "Stochastic Oscillator"
+
+# ========== BROKERS INTEGRATION ==========
+brokers:
+  - name: "Interactive Brokers (IBKR)"
+    status: "planned"
+    priority: "high"
+    features:
+      - real_time_data
+      - live_trading
+      - paper_trading
+  
+  - name: "Alpaca"
+    status: "planned"
+    priority: "high"
+    features:
+      - paper_trading
+      - market_data
+
+# ========== DATABASE CONFIGURATION ==========
+database:
+  connection_strategy: "Dual Motor"
+  
+  supabase:
+    purpose: "User data, transactions, portfolio"
+    connection_string: "${VITE_SUPABASE_URL}"
+    tables:
+      - users
+      - broker_connections
+      - positions
+      - transactions
+      - alerts
+    orm: "Prisma"
+  
+  mongodb:
+    purpose: "Time-series data, technical indicators cache"
+    connection_string: "${MONGODB_URI}"
+    collections:
+      - market_data
+      - technical_indicators
+      - historical_prices
+
+# ========== PERFORMANCE REQUIREMENTS ==========
+performance:
+  broker_api_latency_max: "100ms"
+  bundle_size_max: "500KB" # gzipped
+  indicator_calculation_max: "50ms"
+  page_load_max: "3s"
+  memory_max: "No leaks"
+
+# ========== SECURITY POLICIES ==========
+security:
+  credential_storage: ".env only"
+  api_keys: "Never in code"
+  validated_input: "All endpoints"
+  ssl_tls: "Required in production"
+  cors_enabled: true
+  rate_limiting: "Planned"
+  
+# ========== TESTING REQUIREMENTS ==========
+testing:
+  coverage_minimum: "80%"
+  types_required: true
+  linting_required: true
+  breaking_changes_policy: "Not allowed"
+
+# ========== DEPLOYMENT TARGETS ==========
+deployment:
+  development: "http://localhost:5173"
+  staging: "Pending"
+  production: "Pending"
+  package_registry: "npm"
+
+# ========== TIMELINE ==========
+timeline:
+  phase_2_3: "2-3 days"
+  phase_2_4: "1-2 days"
+  phase_3: "5-7 days"
+  total_estimate: "9-14 days"
+
+# ========== SUCCESS METRICS ==========
+success_metrics:
+  knowledge_base_lines: "> 1000"
+  code_coverage: "> 80%"
+  critical_bugs: "0"
+  security_audit: "passed"
+  performance_benchmarks: "all_met"
+  deployment_readiness: "100%"

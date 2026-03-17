@@ -1,0 +1,230 @@
+# ⚙️ Workflow de Agentes - Proyecto PWA Inversiones DRFIC
+
+**Proyecto**: pwa_inversions_drfic  
+**Versión**: 1.0  
+**Fecha**: 2026-03-16  
+**Basado en**: AI SKILL DEVELOPMENT Methodology v2.2
+
+---
+
+## 🎯 Flujo de Trabajo por FASE
+
+### ✅ FASE 2.3 - INVESTIGACIÓN (Kakashi)
+
+```yaml
+phase: "2.3"
+agent: "kakashi"
+role: "Analista/Arquitecto"
+duration: "2-3 días típicos"
+skills:
+  - ticket_analyzer
+  - knowledge_synthesizer
+inputs:
+  - "SPECIFICATION.md"
+  - "Confirmación BD: Supabase + MongoDB"
+outputs:
+  - "knowledge/local/broker_investigation.md"
+  - "knowledge/local/indicators_research.md"
+  - "knowledge/local/architecture_overview.md"
+  - "knowledge/local/technology_assessment.md"
+success_criteria:
+  - "Knowledge base > 1000 líneas"
+  - "Brokers APIs clara documentadas"
+  - "Indicadores técnicos priorizados"
+  - "0 bloqueos técnicos identificados"
+timeout: "240 minutes"
+retry_policy: "always_confirm"
+```
+
+### ✅ FASE 2.4 - DISEÑO (Kakashi + Naruto + Pelonchas)
+
+**Kakashi - Arquitectura**:
+```yaml
+phase: "2.4"
+agent: "kakashi"
+skill: "architecture_designer"
+duration: "1-2 días"
+outputs:
+  - "project_architecture.md"
+  - "workflow_agents.yaml" (actualizado)
+  - "component_structure.md"
+  - "data_flow_diagram.md"
+success_criteria:
+  - "Arquitectura sin conflictos"
+  - "Componentes claros definidos"
+  - "API contracts documentados"
+timeout: "180 minutes"
+```
+
+**Naruto - Estructura React**:
+```yaml
+phase: "2.4"
+agent: "naruto"
+skill: "code_structure_organizer"
+outputs:
+  - "src/ estructura base"
+  - "components/layout establecida"
+  - "services/ basicos"
+  - "hooks/ setup"
+  - "types/ interfaces OK"
+success_criteria:
+  - "Atomic design pattern"
+  - "Estructura lista para FASE 3"
+  - "ESLint 0 errores"
+timeout: "120 minutes"
+```
+
+**Pelonchas - Modelos de BD**:
+```yaml
+phase: "2.4"
+agent: "pelonchas"
+skill: "database_schema_designer"
+outputs:
+  - "database_schema.md"
+  - "entity_diagram.md"
+  - "migration_plan.md"
+success_criteria:
+  - "Esquemas SQL + NoSQL OK"
+  - "Relaciones claras"
+  - "Performance notes agregadas"
+timeout: "120 minutes"
+```
+
+---
+
+### ⏳ FASE 3 - IMPLEMENTACIÓN (Paralelo)
+
+**Naruto - Implementación**:
+```yaml
+phase: "3"
+agent: "naruto"
+skills:
+  - react_code_generator
+  - typescript_code_generator
+  - broker_api_integrator
+  - tradingview_widgets_integrator
+  - documentation_writer
+duration: "5-7 días (típico)"
+outputs:
+  - "Componentes React completos"
+  - "Servicios de brokers"
+  - "Indicadores técnicos"
+  - "Código documentado FIC style"
+success_criteria:
+  - "TypeScript 0 errores"
+  - "Comentarios FIC (EN/ES) obligatorios"
+  - "Tests > 50% cobertura"
+timeout: "600 minutes (puede variar)"
+```
+
+**Sasuke - Optimización & Seguridad** (Paralelo):
+```yaml
+phase: "3"
+agent: "sasuke"
+skills:
+  - security_auditor
+  - performance_analyzer
+  - code_optimizer
+duration: "Paralelo a Naruto"
+outputs:
+  - "Reporte de seguridad"
+  - "Reporte de performance"
+  - "Código refactorizado"
+success_criteria:
+  - "0 credenciales en código"
+  - "Latencia < 100ms crítica"
+  - "Bundle < 500KB gzipped"
+timeout: "300 minutes cada iteración"
+```
+
+**Sakura - Testing** (Paralelo):
+```yaml
+phase: "3"
+agent: "sakura"
+skills:
+  - test_case_generator
+  - quality_validator
+  - regression_tester
+duration: "Paralelo a Naruto"
+outputs:
+  - "Test suite > 80% cobertura"
+  - "Validación vs SPECIFICATION"
+  - "Reporte de bugs si aplica"
+success_criteria:
+  - "Cobertura > 80%"
+  - "0 bugs críticos"
+  - "Precisión indicadores OK"
+timeout: "240 minutes"
+```
+
+**Pelonchas - Implementación BD** (Paralelo):
+```yaml
+phase: "3"
+agent: "pelonchas"
+skills:
+  - database_migrator
+  - database_connector
+duration: "Paralelo a Naruto"
+outputs:
+  - "Migraciones versionadas"
+  - "ORM Prisma setup"
+  - "Conectores a BD OK"
+success_criteria:
+  - "Migraciones ejecutables"
+  - "ORM sin errores"
+  - "Conexión probada"
+timeout: "180 minutes"
+```
+
+---
+
+## 📊 Timeline Estimado
+
+```
+FASE 2.3 (Kakashi):          2-3 días
+    ↓
+FASE 2.4 (Kakashi+Naruto+Pelonchas): 1-2 días
+    ↓
+FASE 3 (Todos en paralelo):  5-7 días
+    ↓
+TESTING + QA:                1-2 días
+    ↓
+DEPLOYMENT READY:            ✅
+```
+
+**Total Estimado**: 9-14 días para MVP completo
+
+---
+
+## 🚦 Gates y Criterios de Aprobación
+
+### Gate FASE 2.3 → 2.4
+- [ ] Knowledge base documentada
+- [ ] Brokers APIs investigadas
+- [ ] Indicadores priorizados
+
+### Gate FASE 2.4 → 3
+- [ ] Arquitectura aprobada
+- [ ] Schema BD validado
+- [ ] Equipo de desarrollo listo
+
+### Gate FASE 3 → Producción
+- [ ] Todos los tests pasan
+- [ ] Cobertura > 80%
+- [ ] Security audit ok
+- [ ] Performance benchmarks met
+- [ ] 0 bugs críticos
+
+---
+
+## 📞 Contacto y Referencias
+
+- **Repo Base**: `../../../ai_skill_dev1/`
+- **Metodología**: `../../../ai_skill_dev1/AI_SKILL_DEVELOPMENT_METHODOLOGY.md`
+- **Agentes**: `../../../ai_skill_dev1/ai_global/agents/`
+- **Skills**: `../../../ai_skill_dev1/ai_global/skills/`
+
+---
+
+**Estado**: ✅ Listo para FASE 2.3  
+**Próximo Paso**: 🧠 @kakashi · FASE 2.3 · ticket_analyzer
