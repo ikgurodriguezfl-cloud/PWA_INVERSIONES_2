@@ -1,0 +1,37 @@
+### Ver intrumentos
+GET http://localhost:3000/instruments
+
+### Crear instrumento
+POST http://localhost:3000/instruments
+Content-Type: application/json
+
+{
+    "symbol": "AAPL",
+    "name": "Apple Inc.",
+    "type": "stock",
+    "exchange": "NASDAQ",
+    "currency": "USD",
+    "active": true
+}
+
+###Crear indicador
+POST http://localhost:3000/indicators
+Content-Type: application/json
+
+{
+    "instrumentId": "69d5a9df3bb7fd32bd3832b1",
+    "symbol": "AAPL",
+    "timeframe": "1h",
+    "timestamp": "2026-04-08T00:00:00.000Z",
+    "type": "MACD",
+    "macd": {
+        "macdLine": 10,
+        "signalLine": 5,
+        "histogram": 5,
+        "ema12": 100,
+        "ema26": 95
+    }
+}
+
+### Ver indicadores
+GET http://localhost:3000/indicators
