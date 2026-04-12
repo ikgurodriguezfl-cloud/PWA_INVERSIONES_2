@@ -1,4 +1,4 @@
-### Ver intrumentos
+### Ver instrumento
 GET http://localhost:3000/instruments
 
 ### Crear instrumento
@@ -14,12 +14,15 @@ Content-Type: application/json
     "active": true
 }
 
-###Crear indicador
+### Borrar todo los instrumentos
+DELETE http://localhost:3000/instruments
+
+### Crear indicador
 POST http://localhost:3000/indicators
 Content-Type: application/json
 
 {
-    "instrumentId": "69d5a9df3bb7fd32bd3832b1",
+    "instrumentId": "69dc21d56b1a09b61ae52f74",
     "symbol": "AAPL",
     "timeframe": "1h",
     "timestamp": "2026-04-08T00:00:00.000Z",
@@ -35,3 +38,6 @@ Content-Type: application/json
 
 ### Ver indicadores
 GET http://localhost:3000/indicators
+
+###Borrar todo los indicadores
+DELETE http://localhost:3000/indicators

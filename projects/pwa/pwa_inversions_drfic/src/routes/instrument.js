@@ -8,6 +8,7 @@ export const createInstrumentRouter = ({ instrumentModel }) => {
     InstrumentRouter.get("/", instrumentController.getAll);
     InstrumentRouter.post("/", instrumentController.create);
     InstrumentRouter.delete("/:id", instrumentController.delete);
+    InstrumentRouter.delete("/", instrumentController.deleteAll);
     InstrumentRouter.patch("/:id", instrumentController.update);
 
     return InstrumentRouter;
