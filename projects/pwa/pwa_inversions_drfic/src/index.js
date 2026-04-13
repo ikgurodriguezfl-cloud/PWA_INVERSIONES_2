@@ -1,12 +1,12 @@
 import express, { json } from 'express';
 import { createInstrumentRouter } from './routes/instrument.js';
-import { createIndicatorRouter } from './routes/indicator.js';
-import { createCandleRouter } from './routes/candle.js';
 import { createSignalRouter } from './routes/signal.js';
-import { createAnalysisRouter } from './routes/analysis.js';
+import { createOptionsChainRouter } from './routes/optionsChain.js';
+import { createIndicatorSnapshotRouter } from './routes/indicatorSnapshot.js';
+import { createUserAlertRouter } from './routes/userAlert.js';
 import { corsMiddleware } from './middlewares/cors.js';
 
-export const createApp = ({ instrumentModel, indicatorModel, candleModel, signalModel, analysisModel }) => {
+export const createApp = ({ instrumentModel, signalModel, optionsChainModel, indicatorSnapshotModel, userAlertModel }) => {
     const app = express();
     app.use(json());
     app.disable("x-powered-by");
@@ -14,10 +14,10 @@ export const createApp = ({ instrumentModel, indicatorModel, candleModel, signal
     app.use(corsMiddleware());
 
     app.use('/instruments', createInstrumentRouter({ instrumentModel }));
-    app.use('/indicators', createIndicatorRouter({ indicatorModel }));
-    app.use('/candles', createCandleRouter({ candleModel }));
     app.use('/signals', createSignalRouter({ signalModel }));
-    app.use('/analyses', createAnalysisRouter({ analysisModel }));
+    app.use('/optionsChains', createOptionsChainRouter({ optionsChainModel }));
+    app.use('/indicatorSnapshots', createIndicatorSnapshotRouter({ indicatorSnapshotModel }));
+    app.use('/userAlerts', createUserAlertRouter({ userAlertModel }));
 
     const PORT = process.env.PORT || 3000;
 
